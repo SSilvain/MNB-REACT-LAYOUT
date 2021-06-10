@@ -1,0 +1,283 @@
+@mixin font($font_name, $file_name, $weight, $style) {
+    @font-face {
+        font-family: $font_name;
+        font-display: swap;
+        src: url("../fonts/#{$file_name}.woff") format("woff"),
+            url("../fonts/#{$file_name}.woff2") format("woff2");
+        font-weight: #{$weight};
+        font-style: #{$style};
+    }
+}
+
+@import "fonts";
+
+//______________________________________________________________________________
+
+$minWidth: 320;
+$maxWidth: 1400;
+$maxWidthContainer: 1180;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 860; //479.98;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0 0 40px 0;
+    margin: 0;
+    background: #4292c8;
+    background: linear-gradient(to right, #4292c8 0%, #fda753 100%);
+    font-family: Oswald;
+}
+.container {
+    max-width: 850px;
+    margin: 0 auto;
+}
+.logo-wrap {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+    margin: 0 auto 0;
+    // font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    max-width: 740px;
+    align-items: center;
+    picture {
+        width: 100%;
+    }
+    .logo-h2 {
+        position: absolute;
+        font-size: 38px;
+        color: #344652;
+        font-weight: 900;
+        top: 120px;
+        &:first-child {
+            left: 0;
+        }
+        &:last-child {
+            right: 0;
+        }
+        @media (max-width: $md2+px) {
+            position: absolute;
+            top: 300px;
+            left: 0;
+            font-size: 60px;
+            &:first-child,
+            &:last-child {
+                left: 190px;
+                right: auto;
+            }
+        }
+        @media (max-width: $md4+px) {
+            width: 100%;
+            top: 35vw;
+            font-size: 8vw;
+            &:first-child,
+            &:last-child {
+                left: -1.2vw;
+                right: auto;
+            }
+        }
+    }
+}
+
+.big-logo {
+    width: 380px;
+    height: 380px;
+    @media (max-width: $md2+px) {
+        width: 800px;
+        height: 800px;
+    }
+    @media (max-width: $md4+px) {
+        width: 100%;
+        height: auto;
+    }
+}
+#app {
+    // width: 860px;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    // padding-top: 1px;
+    position: relative;
+    filter: opacity(100%);
+}
+
+.digital-wrap {
+    position: relative;
+    background-image: url("./assets/BANNER.png");
+    // width: 851px;
+    height: 158px;
+    border-radius: 15px;
+    margin: 30px auto 30px;
+    border: 1px solid rgba(50, 70, 82, 0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    @media (max-width: $md2+px) {
+    }
+    @media (max-width: $md4+px) {
+        height: auto;
+        padding: 15px 15px;
+        margin: 45px 15px;
+    }
+}
+
+.digital-link {
+    // height: 100%;
+    // width: 100%;
+    // position: absolute;
+    font-size: 25px;
+    color: #344652;
+    font-weight: 900;
+    text-align: center;
+    // flex-grow: 2;
+    picture {
+        // width: 10vw;
+    }
+    @media (max-width: $md2+px) {
+        font-size: 45px;
+    }
+    @media (max-width: $md4+px) {
+        font-size: 45px;
+    }
+}
+
+.min-logo {
+    width: 140px;
+    height: 140px;
+    @media (max-width: $md2+px) {
+        // width: 800px;
+        // height: 800px;
+    }
+    @media (max-width: $md4+px) {
+        display: none;
+    }
+}
+
+// .logo {
+//     font-family: "Roboto", sans-serif;
+//     text-transform: uppercase;
+//     color: #fff;
+//     opacity: 0.8;
+//     font-size: 141px;
+//     margin: 0;
+//     font-weight: 800;
+//     text-align: center;
+//     position: relative;
+//     top: -150px;
+//     left: -6px;
+// }
+
+.social {
+    text-align: center;
+    margin-bottom: 30px;
+
+    a {
+        color: #000;
+        font-size: 42px;
+        transition: 0.3s;
+        display: inline-block;
+        margin: 0 22px;
+        opacity: 0.5;
+        background: #fff;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 97px;
+        outline: none;
+        @media (max-width: $md2+px) {
+            height: 150px;
+            width: 150px;
+            line-height: 150px;
+            font-size: 64px;
+        }
+
+        i {
+            opacity: 1;
+            transition: 0.1s;
+        }
+
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+}
+
+.youtube-video {
+    margin-top: 35px;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    & iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        @media (max-width: $md2+px) {
+            // width: 800px;
+            // height: 400px;
+        }
+    }
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.services {
+    display: inline-block;
+    background: #ffffff;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    cursor: pointer;
+    height: 83px;
+    width: 180px;
+}
+
+.services__google_play {
+    background-image: url("./assets/services/google_play.png");
+    background-size: 138px 27px;
+}
+
+.services__soundcloud {
+    background-image: url("./assets/services/soundcloud.png");
+    background-size: 89px 51px;
+}
+
+.services__itunes {
+    background-image: url("./assets/services/itunes.png");
+    background-size: 112px 39px;
+}
+
+.services__apple_music {
+    background-image: url("./assets/services/apple_music.png");
+    background-size: 150px 50px;
+}
+
+.services__spotify {
+    background-image: url("./assets/services/spotify.png");
+    background-size: 124px 37px;
+}
+
+.services__deezer {
+    background-image: url("./assets/services/deezer.png");
+    background-size: 110px 25px;
+}
+
+.services__youtube_music {
+    background-image: url("./assets/services/youtube_music.png");
+    background-size: 150px 30px;
+}
